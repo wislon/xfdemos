@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="io.wislon.xamformsdemo" android:installLocation="auto" android:versionCode="1" android:versionName="0.1">
+	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="24" />
+	<application android:label="xamformsdemo.Droid" android:icon="@drawable/icon"></application>
+</manifest>
