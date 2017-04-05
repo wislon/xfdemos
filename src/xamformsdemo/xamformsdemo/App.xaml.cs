@@ -12,8 +12,7 @@ namespace xamformsdemo
     public App()
     {
       InitializeComponent();
-
-      MainPage = new xamformsdemo.MainPage();
+      MainPage = new NavigationPage(new MainPage());
     }
 
     protected override void OnStart()

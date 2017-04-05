@@ -7,16 +7,12 @@ using Xamarin.Forms;
 
 namespace xamformsdemo
 {
-  public partial class MainPage : ContentPage
+  public partial class ListViewDemoPage : ContentPage
   {
-    public MainPage()
+    public ListViewDemoPage()
     {
       InitializeComponent();
     }
 
-    private async void BtnListViewDemo_OnClicked(object sender, EventArgs e)
-    {
-      await this.Navigation.PushAsync(new ListViewDemoPage());
-    }
   }
 }

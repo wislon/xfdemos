@@ -2,10 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:xamformsdemo"
-             x:Class="xamformsdemo.MainPage">
+             x:Class="xamformsdemo.MainPage"
+             BackgroundColor="#888888">
+  
+<StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="16" Padding="16">
+  
+    <Label Text="Xamarin Forms Simple Demos" VerticalOptions="StartAndExpand" HorizontalOptions="Center" />
 
-  <Label Text="Welcome to Xamarin Forms!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
+    <Button x:Name="btnListViewDemo" Text="ListView Selected Item Colour" Clicked="BtnListViewDemo_OnClicked" WidthRequest="300" BorderWidth="2" TextColor="White"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+
+  </StackLayout>
 
 </ContentPage>
