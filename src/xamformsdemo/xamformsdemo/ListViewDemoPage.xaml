@@ -1,11 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:xamformsdemo"
              x:Class="xamformsdemo.ListViewDemoPage"
              BackgroundColor="#888888"
              Title="ListView Selected Colour">
   
-<Label Text="This is my listview page" TextColor="White" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" />
+  <ListView VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand" 
+            BackgroundColor="Black" 
+            HasUnevenRows="False" 
+            IsPullToRefreshEnabled="False"
+            ItemsSource="{Binding .}"
+            RowHeight="52"
+            >
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+        <!--<TextCell TextColor="Black" Detail="{Binding .LastUpdated}" DetailColor="Red" Text="{Binding .ItemName}" />--> 
+          <ViewCell.View>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="4" Spacing="8">
+              <Label TextColor="White" Text="{Binding .ItemName}"/>
+              <Label TextColor="Yellow" Text="{Binding .LastUpdated, StringFormat='Last seen: {0:HH:mm:ss}'}"/>
+            </StackLayout>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
 
 </ContentPage>
