@@ -1,18 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace xamformsdemo
 {
   public partial class ListViewDemoPage : ContentPage
   {
+
+    public ObservableCollection<MyModel> MyModelsList { get; set; }
+
     public ListViewDemoPage()
     {
       InitializeComponent();
+
+
+      MyModelsList = new ObservableCollection<MyModel>(MakeAListOfMyModels());
+
+      BindingContext = MyModelsList;
     }
 
+    private List<MyModel> MakeAListOfMyModels()
+    {
+      var lst = new List<MyModel>();
+      for (int i = 0; i < 20; i++)
+      {
+        lst.Add(new MyModel() {ItemName = $"This is Item {i:00}", LastUpdated = DateTime.Now.AddMinutes(-1 * i)});
+      }
+      return lst;
+    }
+  }
+
+  public class MyModel
+  {
+    public string ItemName { get; set; }
+    public DateTime LastUpdated { get; set; }
   }
 }
