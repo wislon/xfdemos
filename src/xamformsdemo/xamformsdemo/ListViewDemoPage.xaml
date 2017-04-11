@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:xamformsdemo.CustomControls;assembly=xamformsdemo"
              x:Class="xamformsdemo.ListViewDemoPage"
              BackgroundColor="#888888"
              Title="ListView Selected Colour">
@@ -15,15 +16,15 @@
             >
     <ListView.ItemTemplate>
       <DataTemplate>
-        <ViewCell>
-        <!--<TextCell TextColor="Black" Detail="{Binding .LastUpdated}" DetailColor="Red" Text="{Binding .ItemName}" />--> 
+        <!--<TextCell TextColor="Black" Detail="{Binding .LastUpdated}" DetailColor="Red" Text="{Binding .ItemName}" />-->
+        <customControls:ExtendedViewCell SelectedBackgroundColor="Teal">
           <ViewCell.View>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="4" Spacing="8">
               <Label TextColor="White" Text="{Binding .ItemName}"/>
               <Label TextColor="Yellow" Text="{Binding .LastUpdated, StringFormat='Last seen: {0:HH:mm:ss}'}"/>
             </StackLayout>
           </ViewCell.View>
-        </ViewCell>
+        </customControls:ExtendedViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
   </ListView>
