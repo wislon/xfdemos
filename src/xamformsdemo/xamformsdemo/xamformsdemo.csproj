@@ -39,6 +39,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ExtendedViewCell.cs" />
     <Compile Include="ListViewDemoPage.xaml.cs">
       <DependentUpon>ListViewDemoPage.xaml</DependentUpon>
     </Compile>
