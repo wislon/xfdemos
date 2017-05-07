@@ -43,7 +43,6 @@
     <Compile Include="CustomControlsPage.xaml.cs">
       <DependentUpon>CustomControlsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Effects\ChangeColorEffect.cs" />
     <Compile Include="Effects\ChangeColorSwitchEffect.cs" />
     <Compile Include="ListViewDemoPage.xaml.cs">
       <DependentUpon>ListViewDemoPage.xaml</DependentUpon>

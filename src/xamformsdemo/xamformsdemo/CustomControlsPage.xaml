@@ -13,8 +13,9 @@
             <Switch VerticalOptions="StartAndExpand" 
                     HorizontalOptions="EndAndExpand" 
                     IsToggled="False"
-                    effects:ChangeColorEffect.FalseColor="Silver"
-                    effects:ChangeColorEffect.TrueColor="Lime" 
+                    effects:ChangeColorSwitchEffect.TrueColor="Lime" 
+                    effects:ChangeColorSwitchEffect.FalseColor="Aqua"
+                    effects:ChangeColorSwitchEffect.ThumbColor="Blue"
             />
         </StackLayout>
 
