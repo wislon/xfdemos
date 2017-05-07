@@ -2,11 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="xamformsdemo.CustomControlsPage"
-             BackgroundColor="#888888"
+             BackgroundColor="Black"
              Title="Some Custom Controls">
-  
-    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" Spacing="20">
-        
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="16" Spacing="32">
+
+        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="0" Spacing="16">
+            <Label TextColor="Silver" Text="Coloured Switch Example" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" />
+            <Switch IsToggled="False" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand" />
+        </StackLayout>
+
     </StackLayout>
 
 </ContentPage>
