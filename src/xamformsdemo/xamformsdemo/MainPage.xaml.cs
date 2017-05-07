@@ -18,5 +18,10 @@ namespace xamformsdemo
     {
       await this.Navigation.PushAsync(new ListViewDemoPage());
     }
+
+    private async void BtnCustomControls_OnClicked(object sender, EventArgs e)
+    {
+      await this.Navigation.PushAsync(new CustomControlsPage());
+    }
   }
 }

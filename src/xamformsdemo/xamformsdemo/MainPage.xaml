@@ -10,6 +10,8 @@
     <Label Text="Xamarin Forms Simple Demos" VerticalOptions="StartAndExpand" HorizontalOptions="Center" />
 
     <Button x:Name="btnListViewDemo" Text="ListView Selected Item Colour" Clicked="BtnListViewDemo_OnClicked" WidthRequest="300" BorderWidth="2" TextColor="White"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+    
+    <Button x:Name="btnCustomControls" Text="Custom Controls" Clicked="BtnCustomControls_OnClicked" WidthRequest="300" BorderWidth="2" TextColor="White"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
 
   </StackLayout>
 

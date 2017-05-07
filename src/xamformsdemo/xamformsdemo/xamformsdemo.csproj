@@ -40,6 +40,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ExtendedViewCell.cs" />
+    <Compile Include="CustomControlsPage.xaml.cs">
+      <DependentUpon>CustomControlsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListViewDemoPage.xaml.cs">
       <DependentUpon>ListViewDemoPage.xaml</DependentUpon>
     </Compile>
@@ -64,6 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ListViewDemoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomControlsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
