@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:xamformsdemo.Effects;assembly=xamformsdemo"
+             x:Class="xamformsdemo.CustomControlsPage"
+             BackgroundColor="Black"
+             Title="Some Custom Controls">
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="16" Spacing="32">
+
+        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="0" Spacing="16">
+            <Label TextColor="Silver" Text="Coloured Switch Example" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" />
+            <Switch VerticalOptions="StartAndExpand" 
+                    HorizontalOptions="EndAndExpand" 
+                    IsToggled="False"
+                    effects:ChangeColorSwitchEffect.TrueColor="Lime" 
+                    effects:ChangeColorSwitchEffect.FalseColor="Aqua"
+                    effects:ChangeColorSwitchEffect.ThumbColor="Blue"
+            />
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>
