@@ -13,6 +13,7 @@
             IsPullToRefreshEnabled="False"
             ItemsSource="{Binding .}"
             RowHeight="52"
+            CachingStrategy="RetainElement"
             >
     <ListView.ItemTemplate>
       <DataTemplate>

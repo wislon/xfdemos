@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace xamformsdemo
 {
+  [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class ListViewDemoPage : ContentPage
   {
 

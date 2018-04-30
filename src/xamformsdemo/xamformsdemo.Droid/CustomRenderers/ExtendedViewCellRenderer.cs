@@ -12,6 +12,11 @@ using xamformsdemo.Droid.CustomRenderers;
 [assembly: ExportRenderer(typeof(ExtendedViewCell), typeof(ExtendedViewCellRenderer))]
 namespace xamformsdemo.Droid.CustomRenderers
 {
+  /// <summary>
+  /// TODO something in here isn't working right any more. Even if we select RetainElement,
+  /// TODO it's still recycling views (seeing multiple selected items come up after we start scrolling)
+  /// TODO do we need to look at convertView to see null/not null and create/reset as necessary now?
+  /// </summary>
   public class ExtendedViewCellRenderer : ViewCellRenderer
   {
 
