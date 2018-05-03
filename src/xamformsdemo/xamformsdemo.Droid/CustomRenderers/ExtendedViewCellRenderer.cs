@@ -58,15 +58,15 @@ namespace xamformsdemo.Droid.CustomRenderers
     {
       base.OnCellPropertyChanged(sender, args);
 
-      //which IsSelected is showing, the one for the xamforms view, or the android native one?
-      if (args.PropertyName == "IsSelected" || args.PropertyName=="Index")
+      if (args.PropertyName == "BindingContext")
       {
         // Had to create a property to track the selection because cellCore.Selected is always false.
-        _selected = !_selected;
+        if (!(sender is ExtendedViewCell extendedViewCell)) return;
+        
+        _selected = extendedViewCell.IsSelected;
 
         if (_selected)
         {
-          var extendedViewCell = sender as ExtendedViewCell;
           _cellCore.SetBackgroundColor(extendedViewCell.SelectedBackgroundColor.ToAndroid());
         }
         else
