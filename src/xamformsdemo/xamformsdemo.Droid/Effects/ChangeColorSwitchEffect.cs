@@ -70,7 +70,7 @@ namespace xamformsdemo.Droid.Effects
     {
       if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.JellyBean)
       {
-        ((Switch)Control).CheckedChange -= OnCheckedChange;
+        ((SwitchCompat)Control).CheckedChange -= OnCheckedChange;
       }
     }
   }
