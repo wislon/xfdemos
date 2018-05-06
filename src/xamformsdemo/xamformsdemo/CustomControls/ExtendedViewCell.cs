@@ -15,12 +15,6 @@ namespace xamformsdemo.CustomControls
         BindableProperty.Create("SelectedBackgroundColor", typeof(Color), typeof(ExtendedViewCell), Color.Transparent);
 
     /// <summary>
-    /// The IsSelected property.
-    /// </summary>
-    public static readonly BindableProperty IsSelectedProperty =
-        BindableProperty.Create("IsSelected", typeof(bool), typeof(ExtendedViewCell), false);
-
-    /// <summary>
     /// Gets or sets the SelectedBackgroundColor.
     /// </summary>
     public Color SelectedBackgroundColor
@@ -29,10 +23,5 @@ namespace xamformsdemo.CustomControls
       set { SetValue(SelectedBackgroundColorProperty, value); }
     }
 
-    public bool IsSelected
-    {
-      get { return (bool)GetValue(IsSelectedProperty); }
-      set { SetValue(IsSelectedProperty, value); }
-    }
   }
 }

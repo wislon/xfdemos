@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 
 using Android.Content;
-using Android.Graphics.Drawables;
 using Android.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -13,44 +12,42 @@ using xamformsdemo.Droid.CustomRenderers;
 namespace xamformsdemo.Droid.CustomRenderers
 {
   /// <summary>
-  /// TODO it looks like we need to have a different renderer for Recycle-based views. Since the native views
-  /// TODO are recycled, they can't track their own 'selected' properties (or you'll see more than one cell becoming
-  /// TODO selected as you scroll back and forth). We'll need the XF 'ExtendedViewCell' to keep track of its
-  /// TODO own 'selected' state (via ItemSelected event?) and then feed that into here, via GetCellCore and 
-  /// TODO probably the BindingContextChanged property for OnCellPropertyChanged below (via 'sender').
-  /// TODO Ppl wonder why Xamarin hasn't done this for us... I think  this explains it, it's too %$#%$ hard to do, because it's 
-  /// TODO bespoke for every custom view for every list for every app.
-  /// TODO Next steps: 
-  /// TODO 0. Revert Everything here (to where we branched) and check that the RetainElement still works as expected.
-  /// TODO 1. Create a different ExtendedRecycledViewCellRenderer (or something), specifically for the Recycle-type implementation.
-  /// TODO 2. Add another demo button to showcase Recycle-type implementation
+  /// Recycle-based views can't store their own 'is selected' properties, or 
+  /// they come up as multiple (un)selected items in the list. Unfortunately
+  /// you'll have to push that list item's selected status down into its BindingContext,
+  /// and pull it out of there when the recycled item is scrolled (back) into view.
+  /// It looks like this is the same with RetainElement caching too now; sometimes those
+  /// get unpredictably recycled too on different/newer versions of Android. 
+  /// So you may as well treat them all as being recycled as well.
   /// </summary>
-  public class ExtendedViewCellRenderer : ViewCellRenderer, INativeElementView
+  public class ExtendedViewCellRenderer : ViewCellRenderer
   {
     private readonly Android.Graphics.Color _defaultBackgroundColor = Android.Graphics.Color.Transparent;
 
     private Android.Views.View _cellCore;
-    private Drawable _unselectedBackground;
     private bool _selected;
-    public Element Element { get; private set; }
 
+    /// <summary>
+    /// In Recycled views, this will only get called for as many items as are on the screen when the list
+    /// is first rendered. After that, it'll never come back here.
+    /// </summary>
+    /// <param name="item"></param>
+    /// <param name="convertView"></param>
+    /// <param name="parent"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     protected override Android.Views.View GetCellCore(Cell item, Android.Views.View convertView, ViewGroup parent, Context context)
     {
-      Element = (ExtendedViewCell)item;
-     
       _cellCore = base.GetCellCore(item, convertView, parent, context);
-
-      // Save/set original background to roll-back to it when not selected,
-      // we're assuming that no cells will be selected on creation.
-      //_selected = extendedViewCell.IsSelected;
-      _unselectedBackground = _cellCore.Background ?? new ColorDrawable(_defaultBackgroundColor);
-
       return _cellCore;
     }
 
     /// <summary>
-    /// TODO figure out the ways to handle recycleelement/retainelement etc, this doesn't always
-    /// fire 
+    /// Recycled views will NEVER fire the "IsSelected" property-changed, only 
+    /// Index and BindingContext. If you're using RetainElement, you'll still 
+    /// see the IsSelected property, but it appears to be unreliable as some of the
+    /// views still get recycled. You'll get views which you've never 'seen' before
+    /// coming up as 'IsSelected', but unpredictably.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="args"></param>
@@ -60,10 +57,10 @@ namespace xamformsdemo.Droid.CustomRenderers
 
       if (args.PropertyName == "BindingContext")
       {
-        // Had to create a property to track the selection because cellCore.Selected is always false.
         if (!(sender is ExtendedViewCell extendedViewCell)) return;
-        
-        _selected = extendedViewCell.IsSelected;
+        if (!(extendedViewCell.BindingContext is ISelectableViewModel viewModel)) return;
+
+        _selected = viewModel.IsSelected;
 
         if (_selected)
         {
@@ -76,6 +73,7 @@ namespace xamformsdemo.Droid.CustomRenderers
       }
     }
 
-  }
 
+
+  }
 }

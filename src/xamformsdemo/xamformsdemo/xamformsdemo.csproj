@@ -44,6 +44,7 @@
       <DependentUpon>CustomControlsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Effects\ChangeColorSwitchEffect.cs" />
+    <Compile Include="ISelectableViewModel.cs" />
     <Compile Include="ListViewDemoPage.xaml.cs">
       <DependentUpon>ListViewDemoPage.xaml</DependentUpon>
     </Compile>

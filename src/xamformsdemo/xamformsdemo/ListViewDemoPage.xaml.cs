@@ -34,7 +34,7 @@ namespace xamformsdemo
 
       private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
       {
-        // need to track the previously selected item or we can't 'deselect' it
+        // need to track the previously selected viewmodel or we can't 'deselect' it
         if (e.SelectedItem == null)
         {
           if (_currentViewModel != null)
@@ -53,17 +53,15 @@ namespace xamformsdemo
         }
         // how to locate the cell from SelectedItem and set child-control visibility using behaviours: https://forums.xamarin.com/discussion/comment/269002/#Comment_269002
         // how to get the selected viewcell: https://forums.xamarin.com/discussion/72411/how-to-get-current-item-in-itemtemplate
-        // should probably use a 'is selected' property in the viewmodel tho, since viewcells are recycled.
       }
   }
 
-  public class MyViewModel : INotifyPropertyChanged
+  public class MyViewModel : INotifyPropertyChanged, ISelectableViewModel
   {
     public event PropertyChangedEventHandler PropertyChanged;
 
     private string _itemName;
     private DateTime _lastUpdated;
-    private bool _isSelected;
 
     public string ItemName
     {
@@ -85,15 +83,10 @@ namespace xamformsdemo
       }
     }
 
-    public bool IsSelected
-    {
-      get => _isSelected;
-      set
-      {
-        _isSelected = value;
-        OnPropertyChanged(nameof(IsSelected));
-      }
-    }
+    /// <summary>
+    /// Do not bind to this
+    /// </summary>
+    public bool IsSelected { get; set; }
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {
