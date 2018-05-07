@@ -75,20 +75,11 @@ namespace xamformsdemo.Droid.CustomRenderers
 
       if (!(sender is ExtendedViewCell extendedViewCell)) return;
 
-      if (args.PropertyName == "CurrentlySelected" || args.PropertyName == "BindingContext")
-      {
-        _selected = extendedViewCell.CurrentlySelected;
+      if (args.PropertyName != "CurrentlySelected" && args.PropertyName != "BindingContext") return;
 
-        // collapse this to ternary if you want, this is just for easier debugging
-        if (_selected)
-        {
-          _cellCore.SetBackgroundColor(_selectedBackgroundColor);
-        }
-        else
-        {
-          _cellCore.SetBackgroundColor(_defaultBackgroundColor);
-        }
-      }
+      _selected = extendedViewCell.CurrentlySelected;
+
+      _cellCore.SetBackgroundColor(_selected ? _selectedBackgroundColor : _defaultBackgroundColor);
     }
 
   }
