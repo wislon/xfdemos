@@ -1,4 +1,4 @@
-﻿namespace xamformsdemo
+﻿namespace xamformsdemo.ViewModels
 {
   public interface ISelectableViewModel
   {

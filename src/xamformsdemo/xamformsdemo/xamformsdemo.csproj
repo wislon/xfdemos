@@ -39,18 +39,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ExtendedListView.cs" />
     <Compile Include="CustomControls\ExtendedViewCell.cs" />
     <Compile Include="CustomControlsPage.xaml.cs">
       <DependentUpon>CustomControlsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Effects\ChangeColorSwitchEffect.cs" />
-    <Compile Include="ISelectableViewModel.cs" />
+    <Compile Include="ViewModels\ISelectableViewModel.cs" />
     <Compile Include="ListViewDemoPage.xaml.cs">
       <DependentUpon>ListViewDemoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\MyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -23,5 +23,22 @@ namespace xamformsdemo.CustomControls
       set { SetValue(SelectedBackgroundColorProperty, value); }
     }
 
+    /// <summary>
+    /// I deliberately picked this property name so there would be no
+    /// confusion with the 'IsSelected' property that (sometimes)
+    /// fires in the custom renderer when you're using RetainElement
+    /// </summary>
+    public static readonly BindableProperty CurrentlySelectedProperty =
+        BindableProperty.Create("CurrentlySelected", typeof(bool), typeof(ExtendedViewCell), false);
+
+    /// <summary>
+    /// Gets or sets the IsSelected property.
+    /// </summary>
+    public bool CurrentlySelected
+    {
+      get { return (bool)GetValue(CurrentlySelectedProperty); }
+      set { SetValue(CurrentlySelectedProperty, value); }
+    }
+
   }
 }
