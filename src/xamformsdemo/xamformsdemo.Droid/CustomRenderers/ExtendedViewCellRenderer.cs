@@ -14,10 +14,12 @@ using xamformsdemo.Droid.CustomRenderers;
 namespace xamformsdemo.Droid.CustomRenderers
 {
   /// <summary>
-  /// Recycle-based views can't store their own 'is selected' properties, or 
-  /// they come up as multiple (un)selected items in the list. Unfortunately
-  /// you'll have to push that list item's selected status down into its BindingContext,
-  /// and pull it out of there when the recycled item is scrolled (back) into view.
+  /// Recycle-based views can't store their own 'is selected' properties, because when they're 
+  /// recycled, that 'is selected' property survives the recycling. The result is that they show
+  /// up as multiple (re)selected items in the list. 
+  /// Unfortunately you'll have to push that list item's 'is selected' status down into 
+  /// its BindingContext, and then retrieve it from there when the recycled item is 
+  /// scrolled (back) into view.
   /// It looks like this is the same with RetainElement caching too now; sometimes those
   /// get unpredictably recycled on different/newer versions of Android. 
   /// So you may as well treat them all as being recycled as well.

@@ -7,8 +7,6 @@ namespace xamformsdemo
 {
   public partial class CustomControlsPage : ContentPage
   {
-
-
     public CustomControlsPage()
     {
       InitializeComponent();
