@@ -48,6 +48,9 @@ namespace xamformsdemo.Droid.CustomRenderers
 
       _extendedViewCell = item as ExtendedViewCell;
 
+      // TODO work the caching strategy into the logic so it works for all types
+      // _cachingStrategy = (item.Parent as ListView).CachingStrategy;
+
       if (_extendedViewCell != null && _extendedViewCell is BindableObject evcAsBindable)
       {
         _selectedBackgroundColor = _extendedViewCell.SelectedBackgroundColor.ToAndroid();
